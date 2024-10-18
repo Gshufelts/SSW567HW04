@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: 
           command: |
-            pip install pytest -s
+            pip install pytest
             pip install requests
             pytest --junitxml=test-results/junit.xml Testmain.py
       - store_test_results:
