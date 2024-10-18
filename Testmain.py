@@ -7,7 +7,7 @@ class TestMethods(unittest.TestCase):
     def testCorrectName(self):
         repo = get_repositories("richkempinski")
         repo1name = repo[1]["name"]
-        self.assertEqual(repo1name, "hellogitworl" )
+        self.assertEqual(repo1name, "hellogitworld" )
 
     def testCorrectName2(self):
         repo = get_repositories("richkempinski")
