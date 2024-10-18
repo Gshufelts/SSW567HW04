@@ -25,15 +25,10 @@ def commit_count(repoName):
     #Returning amount of commits
     return len(commitsData.json())
 
-#Function for retrieving username
-def getName():
-    return input("Please enter the username of the github you would like analytics on: ")
-
-
 #Main function for connecting two previous functions
 def main():
     #Prompting for github username and retrieving data
-    username = getName()
+    username = "richkempinski"
     repos = get_repositories(username)
 
     #Creating loop for print string
