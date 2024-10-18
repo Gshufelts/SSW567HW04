@@ -32,3 +32,7 @@ class TestMethods(unittest.TestCase):
         repo_full_name = repos[1]["full_name"]
         commit_num = commit_count(repo_full_name)
         self.assertEqual("Repo: hellogitworld | Number of commits: 30", f"Repo: {repo_name} | Number of commits: {commit_num}")
+
+if __name__ == '__main__':
+    print('Running unit tests')
+    unittest.main()
