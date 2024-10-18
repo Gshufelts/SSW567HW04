@@ -1,6 +1,6 @@
 #Necessary imports
 import unittest
-from main import get_repositories, commit_count
+from mainCode import get_repositories, commit_count
 
 class TestMethods(unittest.TestCase):
 
