@@ -28,7 +28,7 @@ def commit_count(repoName):
 #Main function for connecting two previous functions
 def main():
     #Prompting for github username and retrieving data
-    username = "richkempinski"
+    username = input("Please enter the name of the user you would like analytics on: ")
     repos = get_repositories(username)
 
     #Creating loop for print string
