@@ -39,6 +39,7 @@ def main():
 
         print(f'Repo: {repo_name} | Number of commits: {commit_num}')
 
-my_brand("Homework 04a")
-main()
-my_brand("Homework 04a")
+if __name__ == '__main__':
+    my_brand("Homework 04a")
+    main()
+    my_brand("Homework 04a")
