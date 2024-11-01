@@ -1,7 +1,7 @@
 # Necessary imports
 import unittest
 from mainCode import get_repositories, commit_count
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 class TestMethods(unittest.TestCase):
 
