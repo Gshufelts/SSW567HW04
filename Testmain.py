@@ -7,7 +7,7 @@ class TestMethods(unittest.TestCase):
 
     @patch('requests.get')
     def testCorrectName(self, mock_get):
-        mock_get.return_value.json.return_value = [{}, {"name": "hellogitworl"}]
+        mock_get.return_value.json.return_value = [{}, {"name": "hellogitworld"}]
         repo = get_repositories("richkempinski")
         repo1name = repo[1]["name"]
         self.assertEqual(repo1name, "hellogitworld")
