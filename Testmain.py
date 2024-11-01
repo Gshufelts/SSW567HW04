@@ -37,7 +37,7 @@ class TestMethods(unittest.TestCase):
         # Mock the response for get_repositories
         mock_get.return_value.json.return_value = [{"full_name": "richkempinski/helloworld"}]
         # Mock the commit count for the specific repo
-        mock_commit_count.return_value = 6
+        mock_commit_count.return_value = ["","","","","",""]
         repo = get_repositories("richkempinski")
         repo2full = repo[0]["full_name"]
         cc2 = commit_count(repo2full)
