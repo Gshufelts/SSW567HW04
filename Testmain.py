@@ -19,7 +19,7 @@ class TestMethods(unittest.TestCase):
         repo2name = repo[2]["name"]
         self.assertEqual(repo2name, "helloworld")
 
-   @patch('requests.get')
+    @patch('requests.get')
     def testCommitCount(self, mock_get):
         mock_get.side_effect = [
             Mock(json=Mock(return_value=[{"full_name": "richkempinski/hellogitworld"}])),
