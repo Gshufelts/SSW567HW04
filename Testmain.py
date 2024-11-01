@@ -19,37 +19,34 @@ class TestMethods(unittest.TestCase):
         repo2name = repo[2]["name"]
         self.assertEqual(repo2name, "helloworld")
 
-    @patch('requests.get')
-    @patch('mainCode.commit_count')
-    def testCommitCount(self, mock_commit_count, mock_get):
-        # Mock the response for get_repositories
-        mock_get.return_value.json.return_value = [{"full_name": "richkempinski/hellogitworld"}]
-        # Mock the commit count for the specific repo
-        mock_commit_count.return_value = 30
+   @patch('requests.get')
+    def testCommitCount(self, mock_get):
+        mock_get.side_effect = [
+            Mock(json=Mock(return_value=[{"full_name": "richkempinski/hellogitworld"}])),
+            Mock(json=Mock(return_value=[{}, {}] * 15))
+        ]
         repo = get_repositories("richkempinski")
         repo1full = repo[0]["full_name"]
         cc1 = commit_count(repo1full)
         self.assertEqual(cc1, 30)
 
     @patch('requests.get')
-    @patch('mainCode.commit_count')  # Mock the commit_count function
-    def testCommitCount2(self, mock_commit_count, mock_get):
-        # Mock the response for get_repositories
-        mock_get.return_value.json.return_value = [{"full_name": "richkempinski/helloworld"}]
-        # Mock the commit count for the specific repo
-        mock_commit_count.return_value = ["","","","","",""]
+    def testCommitCount2(self, mock_get):
+        mock_get.side_effect = [
+            Mock(json=Mock(return_value=[{"full_name": "richkempinski/helloworld"}])),
+            Mock(json=Mock(return_value=[{}, {}] * 3))
+        ]
         repo = get_repositories("richkempinski")
         repo2full = repo[0]["full_name"]
         cc2 = commit_count(repo2full)
         self.assertEqual(cc2, 6)
 
     @patch('requests.get')
-    @patch('mainCode.commit_count')  # Mock the commit_count function
-    def testPrintStatement(self, mock_commit_count, mock_get):
-        # Mock the response for get_repositories
-        mock_get.return_value.json.return_value = [{"name": "hellogitworld", "full_name": "richkempinski/hellogitworld"}]
-        # Mock the commit count for the specific repo
-        mock_commit_count.return_value = 30
+    def testPrintStatement(self, mock_get):
+        mock_get.side_effect = [
+            Mock(json=Mock(return_value=[{"name": "hellogitworld", "full_name": "richkempinski/hellogitworld"}])),
+            Mock(json=Mock(return_value=[{}, {}] * 15))
+        ]
         repos = get_repositories("richkempinski")
         repo_name = repos[0]["name"]
         repo_full_name = repos[0]["full_name"]
